@@ -49,7 +49,7 @@ class Transaction(models.Model):
     Transaction between 2 users.
     Each transaction consists of 2 compatible orders.
     Fields:
-    - executed_at: Datetime format '31/12/2021, 23:59:59'.
+    - executed_at: Datetime format '31/12/2022, 23:59:59'.
     """
     executed_at = models.DateTimeField(auto_now_add=True)
 
@@ -90,9 +90,9 @@ class Order(models.Model):
     class Meta:
         verbose_name = 'Order'
         verbose_name_plural = 'Orders'
-        ordering = ['-created_at']
+        ordering = ['-price']
 
     def __str__(self):
-        return self.created_at.strftime("%d/%m/%Y, %H:%M:%S")
+        return self.price
 
 # Create your models here.
